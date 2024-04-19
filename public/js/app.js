@@ -5080,28 +5080,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
   data: function data() {
-    return {
-      name: 'Ivan',
-      age: 20,
-      arr: {
-        'cars': ['lada', 'BMW', 'kia']
-      },
-      someNull: null
-    };
+    return {};
   },
-  methods: {
-    sayHello: function sayHello() {
-      console.log('Hello');
-    },
-    sayBye: function sayBye() {
-      console.log('Bye');
-    }
-  },
-  computed: {
-    ivanJob: function ivanJob() {
-      return " ".concat(this.name, " \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u0432 UserWeb");
-    }
-  },
+  methods: {},
+  computed: {},
   components: {
     SinglePostComponent: _SinglePostComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -27206,21 +27188,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v(_vm._s(_vm.name))]),
-      _vm._v(" "),
-      _c("div", [_vm._v("Computed: " + _vm._s(_vm.ivanJob))]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.sayHello } }, [_vm._v("Hello")]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.sayBye } }, [_vm._v("Bye")]),
-      _vm._v(" "),
-      _c("SinglePostComponent"),
-    ],
-    1
-  )
+  return _c("div", [_c("SinglePostComponent")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
