@@ -1,5 +1,5 @@
 <script>
-import SinglePostComponent from "./SinglePostComponent.vue";
+import CreateComponent from "./CreateComponent.vue";
 
 export default {
     name: "PostComponent",
@@ -9,26 +9,20 @@ export default {
         }
     },
     mounted() {
-        this.getPersons();
     },
     methods: {
-        getPersons() {
-            axios.get("/persons")
-                .then( response => {
-                    this.persons = response.data;
-                })
-        }
     },
     computed: {
     },
     components: {
-        SinglePostComponent
+        CreateComponent
     }
 }
 </script>
 
 <template>
     <div>
+        <CreateComponent/>
         <table class="table">
             <thead>
             <tr>
@@ -39,7 +33,7 @@ export default {
             </tr>
             </thead>
             <tbody>
-            <tr v-for="person in personsAgeMoreTwenty">
+            <tr v-for="person in persons">
                 <th scope="row">{{ person.id }}</th>
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>
@@ -47,7 +41,6 @@ export default {
             </tr>
             </tbody>
         </table>
-        <SinglePostComponent/>
     </div>
 </template>
 
