@@ -5,29 +5,19 @@ export default {
     name: "PostComponent",
     data() {
         return {
-            persons: [
-                {
-                    id: 1,
-                    name: 'Ivan',
-                    age: 25,
-                    job: 'engineer'
-                },
-                {
-                    id: 2,
-                    name: 'Sergey',
-                    age: 42,
-                    job: 'coach'
-                },
-                {
-                    id: 3,
-                    name: 'Liza',
-                    age: 17,
-                    job: 'designer'
-                }
-            ]
+            persons: null
         }
     },
+    mounted() {
+        this.getPersons();
+    },
     methods: {
+        getPersons() {
+            axios.get("/persons")
+                .then( response => {
+                    this.persons = response.data;
+                })
+        }
     },
     computed: {
     },
@@ -49,7 +39,7 @@ export default {
             </tr>
             </thead>
             <tbody>
-            <tr v-for="person in persons">
+            <tr v-for="person in personsAgeMoreTwenty">
                 <th scope="row">{{ person.id }}</th>
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>

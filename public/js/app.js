@@ -5081,25 +5081,20 @@ __webpack_require__.r(__webpack_exports__);
   name: "PostComponent",
   data: function data() {
     return {
-      persons: [{
-        id: 1,
-        name: 'Ivan',
-        age: 25,
-        job: 'engineer'
-      }, {
-        id: 2,
-        name: 'Sergey',
-        age: 42,
-        job: 'coach'
-      }, {
-        id: 3,
-        name: 'Liza',
-        age: 17,
-        job: 'designer'
-      }]
+      persons: null
     };
   },
-  methods: {},
+  mounted: function mounted() {
+    this.getPersons();
+  },
+  methods: {
+    getPersons: function getPersons() {
+      var _this = this;
+      axios.get("/persons").then(function (response) {
+        _this.persons = response.data;
+      });
+    }
+  },
   computed: {},
   components: {
     SinglePostComponent: _SinglePostComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -27213,7 +27208,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.persons, function (person) {
+          _vm._l(_vm.personsAgeMoreTwenty, function (person) {
             return _c("tr", [
               _c("th", { attrs: { scope: "row" } }, [
                 _vm._v(_vm._s(person.id)),
