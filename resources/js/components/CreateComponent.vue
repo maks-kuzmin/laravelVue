@@ -12,7 +12,9 @@
             addPerson() {
                 axios.post("/api/people", {name: this.name, age: this.age, job: this.job})
                     .then((response) => {
-                        console.log(response);
+                       this.name = null;
+                       this.age = null;
+                       this.job = null;
                     })
             }
         }

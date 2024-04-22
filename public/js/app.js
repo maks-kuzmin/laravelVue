@@ -5086,12 +5086,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addPerson: function addPerson() {
+      var _this = this;
       axios.post("/api/people", {
         name: this.name,
         age: this.age,
         job: this.job
       }).then(function (response) {
-        console.log(response);
+        _this.name = null;
+        _this.age = null;
+        _this.job = null;
       });
     }
   }
