@@ -33,7 +33,7 @@
             <input type="text" class="form-control" v-model="job" id="job" placeholder="job">
         </div>
         <div class="mb-3">
-            <input @click="addPerson" class="btn btn-primary"  value="Добавить">
+            <input @click.prevent="addPerson" class="btn btn-primary"  value="Добавить">
         </div>
     </div>
 </template>

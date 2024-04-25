@@ -22,6 +22,7 @@
 <body>
     <div id="app" class="p-5">
         <post-component></post-component>
+
     </div>
 </body>
 </html>
