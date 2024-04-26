@@ -6,7 +6,7 @@ export default {
                 people: null,
                 editPersonId: null,
                 name: null,
-                age: null,
+                age: 10,
                 job: null
             }
         },
@@ -14,6 +14,8 @@ export default {
             this.getPeople();
             this.changePersonId();
             this.showDataPerson();
+            console.log(this.$parent);
+            this.$parent.$refs.create.createLog();
         },
         methods: {
             getPeople() {
@@ -22,9 +24,16 @@ export default {
                         this.people = response.data;
                     })
             },
-            updatePerson(id) {
+            updatePerson(personId) {
                 this.editPersonId = null;
-                axios.patch(`/api/people/${id}`, {name: this.name, age: this.age, job: this.job})
+                axios.patch(`/api/people/${personId}`, {name: this.name, age: this.age, job: this.job})
+                    .then((response) => {
+                        this.getPeople();
+                    })
+            },
+            deletePerson(personId) {
+                this.editPersonId = null;
+                axios.delete(`/api/people/${personId}`)
                     .then((response) => {
                         this.getPeople();
                     })
@@ -39,6 +48,13 @@ export default {
             },
             isEdit(currentId) {
                 return this.editPersonId === currentId;
+            },
+            indexLog() {
+                this.name = 'Max';
+                this.age = 10;
+                this.job = null;
+                console.log(this.age);
+                console.log('this is index component');
             }
         }
     }
@@ -54,6 +70,7 @@ export default {
                 <th scope="col">Age</th>
                 <th scope="col">Job</th>
                 <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -63,14 +80,24 @@ export default {
                     <td>{{ person.name }}</td>
                     <td>{{ person.age }}</td>
                     <td>{{ person.job }}</td>
-                    <td><a @click.prevent="changePersonId(person.id); showDataPerson(person.name, person.age, person.job)" href="javascript:void(0);" class="btn btn-success">Edit</a></td>
+                    <td>
+                        <a @click.prevent="changePersonId(person.id); showDataPerson(person.name, person.age, person.job)"
+                           href="javascript:void(0);" class="btn btn-success">Edit</a>
+                    </td>
+                    <td>
+                        <a @click.prevent="deletePerson(person.id)"
+                           href="javascript:void(0);" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 <tr :class="isEdit(person.id) ? '' : 'd-none'">
                     <th scope="row">{{person.id}}</th>
                     <td><input v-model="name" type="text" class="form-control"></td>
                     <td><input v-model="age" type="number" class="form-control"></td>
                     <td><input v-model="job" type="text" class="form-control"></td>
-                    <td><a @click.prevent="updatePerson(person.id)" href="javascript:void(0);" class="btn btn-success">Update</a></td>
+                    <td>
+                        <a @click.prevent="updatePerson(person.id)" href="javascript:void(0);" class="btn btn-success">Update</a>
+                    </td>
+                    <td></td>
                 </tr>
             </template>
             </tbody>

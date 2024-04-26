@@ -1,4 +1,5 @@
 <script>
+import ChildComponent from "./ChildComponent.vue";
     export default {
         name: "CreateComponent",
         data() {
@@ -16,7 +17,13 @@
                        this.age = null;
                        this.job = null;
                     })
+            },
+            createLog() {
+                console.log('this is create component');
             }
+        },
+        components: {
+            ChildComponent,
         }
     }
 </script>
@@ -35,6 +42,7 @@
         <div class="mb-3">
             <input @click.prevent="addPerson" class="btn btn-primary"  value="Добавить">
         </div>
+        <ChildComponent></ChildComponent>
     </div>
 </template>
 

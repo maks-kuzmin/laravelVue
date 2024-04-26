@@ -12,6 +12,9 @@ export default {
     mounted() {
     },
     methods: {
+        parentLog() {
+            console.log('This is parent log');
+        }
     },
     computed: {
     },
@@ -20,12 +23,14 @@ export default {
         IndexComponent
     }
 }
+
+
 </script>
 
 <template>
     <div>
-        <CreateComponent/>
-        <IndexComponent/>
+        <CreateComponent ref="create"/>
+        <IndexComponent ref="index"></IndexComponent>
     </div>
 </template>
 
