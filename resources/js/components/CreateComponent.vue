@@ -17,9 +17,6 @@ import ChildComponent from "./ChildComponent.vue";
                        this.age = null;
                        this.job = null;
                     })
-            },
-            createLog() {
-                console.log('this is create component');
             }
         },
         components: {

@@ -12,9 +12,6 @@ export default {
     mounted() {
     },
     methods: {
-        parentLog() {
-            console.log('This is parent log');
-        }
     },
     computed: {
     },

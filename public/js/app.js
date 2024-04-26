@@ -5080,14 +5080,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  mounted: function mounted() {
-    this.$parent.$parent.parentLog();
-  },
-  methods: {
-    childLog: function childLog() {
-      console.log('this is child');
-    }
-  }
+  mounted: function mounted() {},
+  methods: {}
 });
 
 /***/ }),
@@ -5126,9 +5120,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.age = null;
         _this.job = null;
       });
-    },
-    createLog: function createLog() {
-      console.log('this is create component');
     }
   },
   components: {
@@ -5164,8 +5155,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getPeople();
     this.changePersonId();
     this.showDataPerson();
-    console.log(this.$parent);
-    this.$parent.$refs.create.createLog();
   },
   methods: {
     getPeople: function getPeople() {
@@ -5202,13 +5191,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     isEdit: function isEdit(currentId) {
       return this.editPersonId === currentId;
-    },
-    indexLog: function indexLog() {
-      this.name = 'Max';
-      this.age = 10;
-      this.job = null;
-      console.log(this.age);
-      console.log('this is index component');
     }
   }
 });
@@ -5238,11 +5220,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {},
-  methods: {
-    parentLog: function parentLog() {
-      console.log('This is parent log');
-    }
-  },
+  methods: {},
   computed: {},
   components: {
     CreateComponent: _CreateComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],

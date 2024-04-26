@@ -14,8 +14,6 @@ export default {
             this.getPeople();
             this.changePersonId();
             this.showDataPerson();
-            console.log(this.$parent);
-            this.$parent.$refs.create.createLog();
         },
         methods: {
             getPeople() {
@@ -48,13 +46,6 @@ export default {
             },
             isEdit(currentId) {
                 return this.editPersonId === currentId;
-            },
-            indexLog() {
-                this.name = 'Max';
-                this.age = 10;
-                this.job = null;
-                console.log(this.age);
-                console.log('this is index component');
             }
         }
     }
