@@ -7,6 +7,11 @@ import ChildComponent from "./ChildComponent.vue";
                 name: null,
                 age: null,
                 job: null,
+                obj: {
+                    color: 'yellow',
+                    number: '1',
+                    isPublished: true
+                }
             }
         },
         methods: {
@@ -16,6 +21,7 @@ import ChildComponent from "./ChildComponent.vue";
                        this.name = null;
                        this.age = null;
                        this.job = null;
+                       this.$parent.$refs.index.getPeople();
                     })
             }
         },
@@ -39,7 +45,7 @@ import ChildComponent from "./ChildComponent.vue";
         <div class="mb-3">
             <input @click.prevent="addPerson" class="btn btn-primary"  value="Добавить">
         </div>
-        <ChildComponent></ChildComponent>
+        <ChildComponent :obj="obj"></ChildComponent>
     </div>
 </template>
 
