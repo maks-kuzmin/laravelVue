@@ -1,12 +1,12 @@
 <script>
     export default {
-        name: "Index",
+        name: 'Show'
     }
 </script>
 
 <template>
     <div>
-        <router-view></router-view>
+        This is Show Person
     </div>
 </template>
 

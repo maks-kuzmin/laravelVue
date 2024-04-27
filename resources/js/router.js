@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import VueRouter from "vue-router";
-import PostComponent from "./components/PostComponent.vue";
-import TestComponent from "./components/TestComponent.vue";
 
 Vue.use(VueRouter);
 
@@ -10,12 +8,10 @@ export default new VueRouter({
 
     routes: [
         {
-            path: '/posts',
-            component: PostComponent,
-        },
-        {
-            path: '/posts/test',
-            component: TestComponent,
+            path: '/people',
+            component: function () {
+                return import('./components/Person/Index.vue');
+            },
         }
     ]
 })

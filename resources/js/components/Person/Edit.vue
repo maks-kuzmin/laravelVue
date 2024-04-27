@@ -1,12 +1,12 @@
 <script>
     export default {
-        name: "Index",
+        name: 'Edit',
     }
 </script>
 
 <template>
     <div>
-        <router-view></router-view>
+        This is Edit Person
     </div>
 </template>
 

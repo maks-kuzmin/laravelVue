@@ -1,12 +1,12 @@
 <script>
     export default {
-        name: "TestComponent",
+        name: "Index",
     }
 </script>
 
 <template>
     <div>
-        This is TestComponent
+        This is Index Person
     </div>
 </template>
 
